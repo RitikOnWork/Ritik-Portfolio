@@ -1,0 +1,190 @@
+import { useState } from "react";
+import { Mail, Linkedin, Github, MapPin, Send } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+
+const contactLinks = [
+  {
+    icon: Mail,
+    label: "Email",
+    value: "ritikraj2186@gmail.com",
+    href: "mailto:ritikraj2186@gmail.com",
+  },
+  {
+    icon: Linkedin,
+    label: "LinkedIn",
+    value: "ritikonwork",
+    href: "https://www.linkedin.com/in/ritikonwork",
+  },
+  {
+    icon: Github,
+    label: "GitHub",
+    value: "RitikOnWork",
+    href: "https://github.com/RitikOnWork",
+  },
+];
+
+const Contact = () => {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    const subject = `Portfolio Contact from ${formData.name}`;
+    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+    window.location.href = `mailto:ritikraj2186@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+  };
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <section id="contact" className="py-24 md:py-32 relative">
+      {/* Background accent */}
+      <div className="absolute inset-0">
+        <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-primary/5 to-transparent" />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="max-w-5xl mx-auto">
+          {/* Section Header */}
+          <div className="text-center mb-16">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+              Get in <span className="text-gradient">Touch</span>
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              I'm always open to discussing new opportunities and collaborations
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <div className="glass-card p-6">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
+                    <MapPin className="w-5 h-5 text-primary" />
+                  </div>
+                  <div>
+                    <p className="text-sm text-muted-foreground">Location</p>
+                    <p className="font-medium">Noida, India</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Social Links */}
+              <div className="space-y-4">
+                {contactLinks.map((link) => (
+                  <a
+                    key={link.label}
+                    href={link.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="glass-card p-4 flex items-center gap-4 hover-lift group"
+                  >
+                    <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
+                      <link.icon className="w-5 h-5 text-primary" />
+                    </div>
+                    <div>
+                      <p className="text-sm text-muted-foreground">
+                        {link.label}
+                      </p>
+                      <p className="font-medium group-hover:text-primary transition-colors">
+                        {link.value}
+                      </p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+
+            {/* Contact Form */}
+            <div className="glass-card p-6 md:p-8">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Name
+                  </label>
+                  <Input
+                    id="name"
+                    name="name"
+                    placeholder="Your name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    required
+                    className="bg-secondary border-border focus:border-primary"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="your@email.com"
+                    value={formData.email}
+                    onChange={handleChange}
+                    required
+                    className="bg-secondary border-border focus:border-primary"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    name="message"
+                    placeholder="Your message..."
+                    value={formData.message}
+                    onChange={handleChange}
+                    required
+                    rows={5}
+                    className="bg-secondary border-border focus:border-primary resize-none"
+                  />
+                </div>
+
+                <Button
+                  type="submit"
+                  className="w-full bg-primary text-primary-foreground hover:bg-primary/90 glow-green"
+                >
+                  <Send className="w-4 h-4 mr-2" />
+                  Send Message
+                </Button>
+              </form>
+            </div>
+          </div>
+
+          {/* Footer */}
+          <div className="mt-20 pt-8 border-t border-border text-center">
+            <p className="text-muted-foreground text-sm">
+              © {new Date().getFullYear()} Ritik Raj. Built with passion.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
