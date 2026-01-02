@@ -46,8 +46,13 @@ const Hero = () => {
             </span>
           </div>
 
+          {/* Name intro */}
+          <p className="text-xl md:text-2xl text-muted-foreground mb-2 animate-fade-in opacity-0 animation-delay-200">
+            I'm <span className="text-foreground font-semibold">Ritik Raj</span>
+          </p>
+
           {/* Main Headline with typing effect */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in opacity-0 animation-delay-200">
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in opacity-0 animation-delay-300">
             <span className="text-gradient">{displayedText}</span>
             <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 animate-blink align-middle" />
           </h1>

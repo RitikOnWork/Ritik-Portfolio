@@ -42,7 +42,7 @@ const Navbar = () => {
             href="#home"
             className="text-xl md:text-2xl font-bold text-gradient"
           >
-            Ritik Raj
+            RR
           </a>
 
           {/* Desktop Navigation */}
