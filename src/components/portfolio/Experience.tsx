@@ -1,4 +1,5 @@
 import { Calendar, MapPin, Building2 } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const experiences = [
   {
@@ -27,12 +28,14 @@ const experiences = [
 ];
 
 const Experience = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+
   return (
-    <section id="experience" className="py-24 md:py-32 relative">
+    <section id="experience" className="py-24 md:py-32 relative" ref={ref as React.RefObject<HTMLElement>}>
       <div className="container mx-auto px-6">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Work <span className="text-gradient">Experience</span>
             </h2>
@@ -44,17 +47,17 @@ const Experience = () => {
           {/* Timeline */}
           <div className="relative">
             {/* Timeline line */}
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block" />
+            <div className={`absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-primary via-primary/50 to-transparent hidden md:block transition-all duration-1000 ${isVisible ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`} style={{ transformOrigin: "top" }} />
 
             <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <div
                   key={index}
-                  className="relative pl-0 md:pl-16 animate-fade-in opacity-0"
-                  style={{ animationDelay: `${index * 200}ms` }}
+                  className={`relative pl-0 md:pl-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+                  style={{ transitionDelay: `${200 + index * 200}ms` }}
                 >
                   {/* Timeline dot */}
-                  <div className="absolute left-4 top-6 w-4 h-4 rounded-full bg-primary glow-green-sm hidden md:block" />
+                  <div className={`absolute left-4 top-6 w-4 h-4 rounded-full bg-primary glow-green-sm hidden md:block transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 200}ms` }} />
 
                   <div className="glass-card p-6 md:p-8 hover-lift">
                     {/* Badge */}

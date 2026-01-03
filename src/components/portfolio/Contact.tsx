@@ -3,6 +3,7 @@ import { Mail, Linkedin, Github, MapPin, Send } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const contactLinks = [
   {
@@ -31,6 +32,7 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -46,7 +48,7 @@ const Contact = () => {
   };
 
   return (
-    <section id="contact" className="py-24 md:py-32 relative">
+    <section id="contact" className="py-24 md:py-32 relative" ref={ref as React.RefObject<HTMLElement>}>
       {/* Background accent */}
       <div className="absolute inset-0">
         <div className="absolute bottom-0 left-0 right-0 h-1/2 bg-gradient-to-t from-primary/5 to-transparent" />
@@ -55,7 +57,7 @@ const Contact = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-5xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Get in <span className="text-gradient">Touch</span>
             </h2>
@@ -66,7 +68,7 @@ const Contact = () => {
 
           <div className="grid md:grid-cols-2 gap-12">
             {/* Contact Info */}
-            <div className="space-y-8">
+            <div className={`space-y-8 transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}>
               <div className="glass-card p-6">
                 <div className="flex items-center gap-3 mb-4">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -81,13 +83,14 @@ const Contact = () => {
 
               {/* Social Links */}
               <div className="space-y-4">
-                {contactLinks.map((link) => (
+                {contactLinks.map((link, index) => (
                   <a
                     key={link.label}
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="glass-card p-4 flex items-center gap-4 hover-lift group"
+                    className={`glass-card p-4 flex items-center gap-4 hover-lift group transition-all duration-500 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-8"}`}
+                    style={{ transitionDelay: `${200 + index * 100}ms` }}
                   >
                     <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center group-hover:bg-primary/20 transition-colors">
                       <link.icon className="w-5 h-5 text-primary" />
@@ -106,7 +109,7 @@ const Contact = () => {
             </div>
 
             {/* Contact Form */}
-            <div className="glass-card p-6 md:p-8">
+            <div className={`glass-card p-6 md:p-8 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-x-0" : "opacity-0 translate-x-8"}`}>
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div>
                   <label
@@ -176,7 +179,7 @@ const Contact = () => {
           </div>
 
           {/* Footer */}
-          <div className="mt-20 pt-8 border-t border-border text-center">
+          <div className={`mt-20 pt-8 border-t border-border text-center transition-all duration-700 delay-500 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-4"}`}>
             <p className="text-muted-foreground text-sm">
               © {new Date().getFullYear()} Ritik Raj. Built with passion.
             </p>
