@@ -65,10 +65,10 @@ const Hero = () => {
           </div>
 
           {/* Name intro with typing animation */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-2 animate-fade-in opacity-0 animation-delay-200 min-h-[1.75rem] md:min-h-[2rem]">
-            <span className="text-foreground font-semibold">{nameText}</span>
+          <p className="text-2xl md:text-3xl lg:text-4xl mb-4 animate-fade-in opacity-0 animation-delay-200 min-h-[2rem] md:min-h-[2.5rem] lg:min-h-[3rem]">
+            <span className="font-bold text-gradient">{nameText}</span>
             {showNameCursor && (
-              <span className="inline-block w-[2px] h-[1em] bg-primary ml-1 animate-blink align-middle" />
+              <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 animate-blink align-middle" />
             )}
           </p>
 
