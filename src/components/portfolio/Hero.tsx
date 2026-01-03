@@ -4,21 +4,39 @@ import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 
 const Hero = () => {
-  const [displayedText, setDisplayedText] = useState("");
-  const fullText = "Building Intelligent, Scalable Systems";
+  const [nameText, setNameText] = useState("");
+  const [headlineText, setHeadlineText] = useState("");
+  const [showNameCursor, setShowNameCursor] = useState(true);
+  const [showHeadlineCursor, setShowHeadlineCursor] = useState(false);
+  
+  const fullName = "Hello, I'm Ritik Raj";
+  const fullHeadline = "Building Intelligent, Scalable Systems";
 
   useEffect(() => {
-    let index = 0;
-    const timer = setInterval(() => {
-      if (index < fullText.length) {
-        setDisplayedText(fullText.slice(0, index + 1));
-        index++;
+    let nameIndex = 0;
+    const nameTimer = setInterval(() => {
+      if (nameIndex < fullName.length) {
+        setNameText(fullName.slice(0, nameIndex + 1));
+        nameIndex++;
       } else {
-        clearInterval(timer);
+        clearInterval(nameTimer);
+        setShowNameCursor(false);
+        setShowHeadlineCursor(true);
+        
+        // Start headline animation after name completes
+        let headlineIndex = 0;
+        const headlineTimer = setInterval(() => {
+          if (headlineIndex < fullHeadline.length) {
+            setHeadlineText(fullHeadline.slice(0, headlineIndex + 1));
+            headlineIndex++;
+          } else {
+            clearInterval(headlineTimer);
+          }
+        }, 50);
       }
-    }, 50);
+    }, 70);
 
-    return () => clearInterval(timer);
+    return () => clearInterval(nameTimer);
   }, []);
 
   return (
@@ -46,15 +64,20 @@ const Hero = () => {
             </span>
           </div>
 
-          {/* Name intro */}
-          <p className="text-xl md:text-2xl text-muted-foreground mb-2 animate-fade-in opacity-0 animation-delay-200">
-            I'm <span className="text-foreground font-semibold">Ritik Raj</span>
+          {/* Name intro with typing animation */}
+          <p className="text-xl md:text-2xl text-muted-foreground mb-2 animate-fade-in opacity-0 animation-delay-200 min-h-[1.75rem] md:min-h-[2rem]">
+            <span className="text-foreground font-semibold">{nameText}</span>
+            {showNameCursor && (
+              <span className="inline-block w-[2px] h-[1em] bg-primary ml-1 animate-blink align-middle" />
+            )}
           </p>
 
           {/* Main Headline with typing effect */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in opacity-0 animation-delay-300">
-            <span className="text-gradient">{displayedText}</span>
-            <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 animate-blink align-middle" />
+          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in opacity-0 animation-delay-300 min-h-[3rem] md:min-h-[4.5rem] lg:min-h-[5.25rem]">
+            <span className="text-gradient">{headlineText}</span>
+            {showHeadlineCursor && (
+              <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 animate-blink align-middle" />
+            )}
           </h1>
 
           {/* Subheadline */}
