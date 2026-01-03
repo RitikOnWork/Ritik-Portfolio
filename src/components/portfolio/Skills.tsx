@@ -21,6 +21,7 @@ import {
 } from "react-icons/si";
 import { FaJava } from "react-icons/fa";
 import { Terminal, Brain, Workflow, Database, Cloud, Code2, Palette } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const skillCategories = [
   {
@@ -102,15 +103,17 @@ const skillCategories = [
 ];
 
 const Skills = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section id="skills" className="py-24 md:py-32 relative">
+    <section id="skills" className="py-24 md:py-32 relative" ref={ref as React.RefObject<HTMLElement>}>
       {/* Background accent */}
       <div className="absolute inset-0 gradient-bg opacity-50" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Technical <span className="text-gradient">Skills</span>
             </h2>
@@ -124,8 +127,8 @@ const Skills = () => {
             {skillCategories.map((category, catIndex) => (
               <div
                 key={category.title}
-                className="glass-card p-6 hover-lift"
-                style={{ animationDelay: `${catIndex * 100}ms` }}
+                className={`glass-card p-6 hover-lift transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                style={{ transitionDelay: `${catIndex * 100}ms` }}
               >
                 <div className="flex items-center gap-3 mb-5">
                   <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">

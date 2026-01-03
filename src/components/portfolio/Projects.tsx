@@ -1,5 +1,6 @@
 import { ExternalLink, Github } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const projects = [
   {
@@ -40,15 +41,17 @@ const projects = [
 ];
 
 const Projects = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section id="projects" className="py-24 md:py-32 relative">
+    <section id="projects" className="py-24 md:py-32 relative" ref={ref as React.RefObject<HTMLElement>}>
       {/* Background accent */}
       <div className="absolute inset-0 gradient-bg opacity-30" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section Header */}
-          <div className="text-center mb-16">
+          <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
               Featured <span className="text-gradient">Projects</span>
             </h2>
@@ -62,8 +65,8 @@ const Projects = () => {
             {projects.map((project, index) => (
               <div
                 key={project.title}
-                className="glass-card p-6 hover-lift group animate-fade-in opacity-0"
-                style={{ animationDelay: `${index * 100}ms` }}
+                className={`glass-card p-6 hover-lift group transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0 scale-100" : "opacity-0 translate-y-8 scale-95"}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
                 {/* Project icon/preview placeholder */}
                 <div className="w-full h-32 rounded-xl bg-gradient-to-br from-primary/20 to-green-400/10 mb-5 flex items-center justify-center group-hover:from-primary/30 group-hover:to-green-400/20 transition-all duration-300">

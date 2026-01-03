@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight, Sparkles, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 
@@ -106,6 +106,22 @@ const Hero = () => {
               className="border-border hover:bg-secondary text-base px-8"
             >
               <a href="#projects">View Projects</a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-primary/50 hover:bg-primary/10 text-primary text-base px-8"
+            >
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                download
+              >
+                <Download className="mr-2 w-4 h-4" />
+                Resume
+              </a>
             </Button>
           </div>
 

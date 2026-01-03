@@ -1,4 +1,5 @@
 import { Trophy, Award, Code, Users } from "lucide-react";
+import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const achievements = [
   {
@@ -32,14 +33,16 @@ const achievements = [
 ];
 
 const Achievements = () => {
+  const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section id="achievements" className="py-20 relative overflow-hidden">
+    <section id="achievements" className="py-20 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             My <span className="text-gradient">Achievements</span>
           </h2>
@@ -51,20 +54,20 @@ const Achievements = () => {
         {/* Timeline */}
         <div className="max-w-4xl mx-auto relative">
           {/* Vertical line */}
-          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/30 to-transparent hidden md:block" />
-          <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/30 to-transparent md:hidden" />
+          <div className={`absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/30 to-transparent hidden md:block transition-all duration-1000 ${isVisible ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`} style={{ transformOrigin: "top" }} />
+          <div className={`absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/30 to-transparent md:hidden transition-all duration-1000 ${isVisible ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`} style={{ transformOrigin: "top" }} />
 
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className={`relative flex items-start gap-6 mb-12 last:mb-0 animate-fade-in opacity-0 ${
+              className={`relative flex items-start gap-6 mb-12 last:mb-0 transition-all duration-700 ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              }`}
-              style={{ animationDelay: `${index * 150}ms`, animationFillMode: "forwards" }}
+              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
               {/* Timeline dot */}
-              <div className="absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-green-sm z-10 hidden md:block" />
-              <div className="absolute left-8 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-green-sm z-10 md:hidden" />
+              <div className={`absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-green-sm z-10 hidden md:block transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
+              <div className={`absolute left-8 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-green-sm z-10 md:hidden transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
 
               {/* Content */}
               <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}`}>
