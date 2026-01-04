@@ -1,15 +1,42 @@
 import { ExternalLink, Award } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import stanfordLogo from "@/assets/stanford-logo.png";
+import udemyLogo from "@/assets/udemy-logo.svg";
+import awsLogo from "@/assets/aws-logo.png";
 
 const certifications = [
+  {
+    title: "The Complete Full-Stack Web Development Bootcamp",
+    issuer: "Udemy",
+    issueDate: "Jul 2025",
+    credentialId: "UC-7edd600d-b8d6-4d2d-be52-f69d3ec5a7d0",
+    credentialUrl: "https://www.udemy.com/certificate/UC-7edd600d-b8d6-4d2d-be52-f69d3ec5a7d0/",
+    logo: udemyLogo,
+  },
   {
     title: "Supervised Machine Learning: Regression and Classification",
     issuer: "Stanford University",
     issueDate: "Sep 2025",
     credentialId: "4596ZUDYE2OJ",
     credentialUrl: "https://www.coursera.org/account/accomplishments/verify/4596ZUDYE2OJ",
-    logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/Seal_of_Leland_Stanford_Junior_University.svg/1200px-Seal_of_Leland_Stanford_Junior_University.svg.png",
+    logo: stanfordLogo,
+  },
+  {
+    title: "Advanced Learning Algorithms",
+    issuer: "Stanford University",
+    issueDate: "Nov 2025",
+    credentialId: "X5DS3FZQ6TWO",
+    credentialUrl: "https://www.coursera.org/account/accomplishments/verify/X5DS3FZQ6TWO",
+    logo: stanfordLogo,
+  },
+  {
+    title: "AWS Academy Graduate - Cloud Foundations - Training Badge",
+    issuer: "Amazon Web Services (AWS)",
+    issueDate: "Nov 2025",
+    credentialId: "1kD9RyLs",
+    credentialUrl: "https://www.credly.com/badges/b82253a2-6ba2-44f8-af2b-c5cd9a16c185/print",
+    logo: awsLogo,
   },
 ];
 
@@ -40,7 +67,7 @@ const Certifications = () => {
               >
                 <div className="flex flex-col md:flex-row gap-6 items-start">
                   {/* Logo */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-white/10 flex items-center justify-center p-3 shrink-0">
+                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-white/90 flex items-center justify-center p-3 shrink-0">
                     <img
                       src={cert.logo}
                       alt={`${cert.issuer} logo`}
