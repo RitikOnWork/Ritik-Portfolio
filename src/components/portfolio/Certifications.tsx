@@ -4,6 +4,7 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 import stanfordLogo from "@/assets/stanford-logo.png";
 import udemyLogo from "@/assets/udemy-logo.svg";
 import awsLogo from "@/assets/aws-logo.png";
+import gfgLogo from "@/assets/gfg-logo.svg";
 
 const certifications = [
   {
@@ -21,6 +22,14 @@ const certifications = [
     credentialId: "4596ZUDYE2OJ",
     credentialUrl: "https://www.coursera.org/account/accomplishments/verify/4596ZUDYE2OJ",
     logo: stanfordLogo,
+  },
+  {
+    title: "GeeksforGeeks 160 Days of DSA Challenge",
+    issuer: "GeeksforGeeks",
+    issueDate: "Sep 2025",
+    credentialId: "ee503b06d8a9605bb0ca39c505bb5984",
+    credentialUrl: "https://media.geeksforgeeks.org/courses/certificates/ee503b06d8a9605bb0ca39c505bb5984.pdf",
+    logo: gfgLogo,
   },
   {
     title: "Advanced Learning Algorithms",
