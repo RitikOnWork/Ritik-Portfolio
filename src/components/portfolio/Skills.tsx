@@ -28,76 +28,76 @@ const skillCategories = [
     title: "Design",
     icon: Palette,
     skills: [
-      { name: "Low-Level Design", icon: Code2 },
-      { name: "UI/UX Prototyping", icon: Palette },
-      { name: "Figma", icon: SiFigma },
+      { name: "Low-Level Design", icon: Code2, proficiency: 80 },
+      { name: "UI/UX Prototyping", icon: Palette, proficiency: 75 },
+      { name: "Figma", icon: SiFigma, proficiency: 70 },
     ],
   },
   {
     title: "Programming",
     icon: Terminal,
     skills: [
-      { name: "Java", icon: FaJava },
-      { name: "Python", icon: SiPython },
-      { name: "HTML", icon: SiHtml5 },
-      { name: "CSS", icon: SiCss3 },
-      { name: "JavaScript", icon: SiJavascript },
-      { name: "TypeScript", icon: SiTypescript },
-      { name: "Bash", icon: Terminal },
+      { name: "Java", icon: FaJava, proficiency: 90 },
+      { name: "Python", icon: SiPython, proficiency: 95 },
+      { name: "HTML", icon: SiHtml5, proficiency: 90 },
+      { name: "CSS", icon: SiCss3, proficiency: 85 },
+      { name: "JavaScript", icon: SiJavascript, proficiency: 85 },
+      { name: "TypeScript", icon: SiTypescript, proficiency: 80 },
+      { name: "Bash", icon: Terminal, proficiency: 75 },
     ],
   },
   {
     title: "Databases",
     icon: Database,
     skills: [
-      { name: "SQLite", icon: SiSqlite },
-      { name: "Supabase", icon: SiSupabase },
-      { name: "DynamoDB", icon: SiAmazondynamodb },
-      { name: "Aurora", icon: Database },
-      { name: "Amazon RDS", icon: Database },
+      { name: "SQLite", icon: SiSqlite, proficiency: 85 },
+      { name: "Supabase", icon: SiSupabase, proficiency: 80 },
+      { name: "DynamoDB", icon: SiAmazondynamodb, proficiency: 75 },
+      { name: "Aurora", icon: Database, proficiency: 70 },
+      { name: "Amazon RDS", icon: Database, proficiency: 75 },
     ],
   },
   {
     title: "DevOps & Cloud",
     icon: Cloud,
     skills: [
-      { name: "AWS", icon: SiAmazonwebservices },
-      { name: "GCP", icon: SiGooglecloud },
-      { name: "Docker", icon: SiDocker },
-      { name: "Kubernetes", icon: SiKubernetes },
-      { name: "Terraform", icon: SiTerraform },
-      { name: "CI/CD", icon: Workflow },
+      { name: "AWS", icon: SiAmazonwebservices, proficiency: 85 },
+      { name: "GCP", icon: SiGooglecloud, proficiency: 70 },
+      { name: "Docker", icon: SiDocker, proficiency: 80 },
+      { name: "Kubernetes", icon: SiKubernetes, proficiency: 70 },
+      { name: "Terraform", icon: SiTerraform, proficiency: 75 },
+      { name: "CI/CD", icon: Workflow, proficiency: 80 },
     ],
   },
   {
     title: "Frameworks & Tools",
     icon: Code2,
     skills: [
-      { name: "Flask", icon: SiFlask },
-      { name: "Firebase", icon: SiFirebase },
-      { name: "Git", icon: SiGit },
-      { name: "GitHub", icon: SiGithub },
-      { name: "Terragrunt", icon: SiTerraform },
-      { name: "Agile/Scrum", icon: Workflow },
+      { name: "Flask", icon: SiFlask, proficiency: 85 },
+      { name: "Firebase", icon: SiFirebase, proficiency: 80 },
+      { name: "Git", icon: SiGit, proficiency: 90 },
+      { name: "GitHub", icon: SiGithub, proficiency: 90 },
+      { name: "Terragrunt", icon: SiTerraform, proficiency: 70 },
+      { name: "Agile/Scrum", icon: Workflow, proficiency: 85 },
     ],
   },
   {
     title: "Machine Learning",
     icon: Brain,
     skills: [
-      { name: "PyTorch", icon: SiPytorch },
-      { name: "Hugging Face", icon: Brain },
-      { name: "LLMs", icon: Brain },
-      { name: "SGLang", icon: Brain },
-      { name: "OpenRouter", icon: Brain },
+      { name: "PyTorch", icon: SiPytorch, proficiency: 75 },
+      { name: "Hugging Face", icon: Brain, proficiency: 80 },
+      { name: "LLMs", icon: Brain, proficiency: 85 },
+      { name: "SGLang", icon: Brain, proficiency: 70 },
+      { name: "OpenRouter", icon: Brain, proficiency: 75 },
     ],
   },
   {
     title: "Automation",
     icon: Workflow,
     skills: [
-      { name: "Opal by Google", icon: Workflow },
-      { name: "n8n", icon: Workflow },
+      { name: "Opal by Google", icon: Workflow, proficiency: 75 },
+      { name: "n8n", icon: Workflow, proficiency: 80 },
     ],
   },
 ];
@@ -137,14 +137,25 @@ const Skills = () => {
                   <h3 className="text-lg font-semibold">{category.title}</h3>
                 </div>
 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <div
-                      key={skill.name}
-                      className="skill-card flex items-center gap-2 px-3 py-2 rounded-lg text-sm"
-                    >
-                      <skill.icon className="w-4 h-4 text-primary shrink-0" />
-                      <span className="text-muted-foreground">{skill.name}</span>
+                <div className="space-y-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skill.name} className="space-y-1.5">
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center gap-2">
+                          <skill.icon className="w-4 h-4 text-primary shrink-0" />
+                          <span className="text-sm text-foreground">{skill.name}</span>
+                        </div>
+                        <span className="text-xs text-muted-foreground">{skill.proficiency}%</span>
+                      </div>
+                      <div className="h-2 w-full bg-muted/50 rounded-full overflow-hidden">
+                        <div
+                          className="h-full bg-gradient-to-r from-primary to-green-400 rounded-full transition-all duration-1000 ease-out"
+                          style={{
+                            width: isVisible ? `${skill.proficiency}%` : '0%',
+                            transitionDelay: `${catIndex * 100 + skillIndex * 50}ms`,
+                          }}
+                        />
+                      </div>
                     </div>
                   ))}
                 </div>
