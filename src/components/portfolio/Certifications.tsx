@@ -61,12 +61,12 @@ const Certifications = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section id="certifications" className="py-24 md:py-32 relative" ref={ref as React.RefObject<HTMLElement>}>
+    <section id="certifications" className="py-16 md:py-24 relative" ref={ref as React.RefObject<HTMLElement>}>
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto">
           {/* Section Header */}
-          <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <div className={`text-center mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+            <h2 className="text-3xl md:text-4xl font-bold mb-3">
               Licenses & <span className="text-gradient">Certifications</span>
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -75,16 +75,16 @@ const Certifications = () => {
           </div>
 
           {/* Certifications List */}
-          <div className="space-y-6">
+          <div className="space-y-4">
             {certifications.map((cert, index) => (
               <div
                 key={cert.credentialId}
-                className={`glass-card p-6 md:p-8 hover-lift transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-                style={{ transitionDelay: `${index * 150}ms` }}
+                className={`glass-card p-4 md:p-5 hover-lift transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+                style={{ transitionDelay: `${index * 100}ms` }}
               >
-                <div className="flex flex-col md:flex-row gap-6 items-start">
+                <div className="flex flex-col md:flex-row gap-4 items-start md:items-center">
                   {/* Logo */}
-                  <div className="w-20 h-20 md:w-24 md:h-24 rounded-xl bg-white/90 flex items-center justify-center p-3 shrink-0">
+                  <div className="w-14 h-14 md:w-16 md:h-16 rounded-lg bg-white/90 flex items-center justify-center p-2 shrink-0">
                     <img
                       src={cert.logo}
                       alt={`${cert.issuer} logo`}
@@ -93,42 +93,39 @@ const Certifications = () => {
                   </div>
 
                   {/* Content */}
-                  <div className="flex-1">
-                    <div className="flex items-start gap-3 mb-2">
-                      <Award className="w-5 h-5 text-primary mt-1 shrink-0" />
-                      <h3 className="text-xl md:text-2xl font-semibold">
+                  <div className="flex-1 min-w-0">
+                    <div className="flex items-start gap-2 mb-1">
+                      <Award className="w-4 h-4 text-primary mt-0.5 shrink-0" />
+                      <h3 className="text-base md:text-lg font-semibold leading-tight">
                         {cert.title}
                       </h3>
                     </div>
 
-                    <p className="text-lg text-muted-foreground mb-1 ml-8">
-                      {cert.issuer}
+                    <p className="text-sm text-muted-foreground ml-6">
+                      {cert.issuer} • Issued {cert.issueDate}
                     </p>
 
-                    <p className="text-sm text-muted-foreground mb-3 ml-8">
-                      Issued {cert.issueDate}
+                    <p className="text-xs text-muted-foreground ml-6 mt-1">
+                      ID: <span className="font-mono text-foreground/70">{cert.credentialId}</span>
                     </p>
-
-                    <p className="text-sm text-muted-foreground mb-4 ml-8">
-                      Credential ID: <span className="font-mono text-foreground/80">{cert.credentialId}</span>
-                    </p>
-
-                    <Button
-                      asChild
-                      variant="outline"
-                      size="sm"
-                      className="ml-8 border-border hover:border-primary/50 hover:bg-primary/5"
-                    >
-                      <a
-                        href={cert.credentialUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <ExternalLink className="w-4 h-4 mr-2" />
-                        Show Credential
-                      </a>
-                    </Button>
                   </div>
+
+                  {/* Button */}
+                  <Button
+                    asChild
+                    variant="outline"
+                    size="sm"
+                    className="border-border hover:border-primary/50 hover:bg-primary/5 shrink-0"
+                  >
+                    <a
+                      href={cert.credentialUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 mr-1.5" />
+                      View
+                    </a>
+                  </Button>
                 </div>
               </div>
             ))}
