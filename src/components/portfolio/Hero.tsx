@@ -48,7 +48,7 @@ const Hero = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             <span className="text-sm font-medium text-primary">
-              Open to ML/AI & SDE Roles
+              Open to AI/ML & SDE Roles
             </span>
           </div>
 
