@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, Download } from "lucide-react";
+import { ArrowRight, Sparkles, Download, Mail } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 
@@ -7,7 +7,7 @@ const Hero = () => {
   const [headlineText, setHeadlineText] = useState("");
   const [showHeadlineCursor, setShowHeadlineCursor] = useState(true);
   
-  const fullHeadline = "Hello, I'm Ritik Raj";
+  const fullHeadline = "Ritik Raj";
 
   useEffect(() => {
     let headlineIndex = 0;
@@ -19,7 +19,7 @@ const Hero = () => {
         clearInterval(headlineTimer);
         setShowHeadlineCursor(false);
       }
-    }, 70);
+    }, 100);
 
     return () => clearInterval(headlineTimer);
   }, []);
@@ -37,58 +37,76 @@ const Hero = () => {
 
       {/* Glow orbs */}
       <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/20 rounded-full blur-[120px] animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-green-400/15 rounded-full blur-[100px] animate-pulse-glow animation-delay-500" />
+      <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-primary/10 rounded-full blur-[100px] animate-pulse-glow animation-delay-500" />
 
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-4xl mx-auto text-center">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-8 animate-fade-in opacity-0">
-            <Sparkles className="w-4 h-4 text-primary" />
+          {/* Status Badge - Social Proof */}
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/30 mb-6 animate-fade-in opacity-0">
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            </span>
             <span className="text-sm font-medium text-primary">
-              Emerging ML Engineer
+              Open to ML/AI Internship & Full-time Roles
             </span>
           </div>
 
           {/* Main Headline with typing effect */}
-          <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in opacity-0 animation-delay-300 min-h-[3rem] md:min-h-[4.5rem] lg:min-h-[5.25rem]">
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 animate-fade-in opacity-0 animation-delay-200 min-h-[3.5rem] md:min-h-[4.5rem] lg:min-h-[5.25rem]">
+            <span className="text-foreground">Hi, I'm </span>
             <span className="text-gradient">{headlineText}</span>
             {showHeadlineCursor && (
               <span className="inline-block w-[3px] h-[1em] bg-primary ml-1 animate-blink align-middle" />
             )}
           </h1>
 
-          {/* Subheadline */}
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 animate-fade-in opacity-0 animation-delay-400">
-            Computer Science student passionate about AI, data-driven problem
-            solving, and modern software systems. Harnessing data to solve
-            complex problems.
+          {/* Role Title - Clear positioning */}
+          <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary mb-6 animate-fade-in opacity-0 animation-delay-300">
+            Aspiring ML Engineer & AI Enthusiast
           </p>
 
-          {/* CTAs */}
+          {/* Value Proposition - Results-driven */}
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in opacity-0 animation-delay-400">
+            CS student building <span className="text-foreground font-medium">intelligent systems</span> that solve real-world problems. 
+            Experienced in <span className="text-foreground font-medium">deep learning, NLP, and computer vision</span> with 
+            hands-on projects deploying ML models at scale.
+          </p>
+
+          {/* Key Stats - Credibility Indicators */}
+          <div className="flex flex-wrap justify-center gap-6 md:gap-10 mb-10 animate-fade-in opacity-0 animation-delay-500">
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary">5+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">ML Projects</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary">1000+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">DSA Problems</div>
+            </div>
+            <div className="text-center">
+              <div className="text-2xl md:text-3xl font-bold text-primary">3+</div>
+              <div className="text-xs md:text-sm text-muted-foreground">Certifications</div>
+            </div>
+          </div>
+
+          {/* CTAs - Optimized for conversion */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in opacity-0 animation-delay-600">
             <Button
               asChild
               size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-green text-base px-8"
+              className="bg-primary text-primary-foreground hover:bg-primary/90 glow-green text-base px-8 font-semibold group"
             >
               <a href="#contact">
-                Open to Opportunities
-                <ArrowRight className="ml-2 w-4 h-4" />
+                <Mail className="mr-2 w-4 h-4" />
+                Let's Connect
+                <ArrowRight className="ml-2 w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
             <Button
               asChild
               variant="outline"
               size="lg"
-              className="border-border hover:bg-secondary text-base px-8"
-            >
-              <a href="#projects">View Projects</a>
-            </Button>
-            <Button
-              asChild
-              variant="outline"
-              size="lg"
-              className="border-primary/50 hover:bg-primary/10 text-primary text-base px-8"
+              className="border-primary/50 hover:bg-primary/10 text-primary text-base px-8 font-semibold"
             >
               <a
                 href="/resume.pdf"
@@ -97,9 +115,21 @@ const Hero = () => {
                 download
               >
                 <Download className="mr-2 w-4 h-4" />
-                Resume
+                Download Resume
               </a>
             </Button>
+          </div>
+
+          {/* Secondary CTA */}
+          <div className="mt-6 animate-fade-in opacity-0 animation-delay-700">
+            <a 
+              href="#projects" 
+              className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
+            >
+              <Sparkles className="w-3 h-3" />
+              View my ML projects
+              <ArrowRight className="w-3 h-3" />
+            </a>
           </div>
 
           {/* Scroll indicator */}
