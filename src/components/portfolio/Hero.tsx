@@ -49,7 +49,6 @@ const Hero = () => {
             </span>
           </div>
 
-
           {/* Main Headline with typing effect */}
           <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 animate-fade-in opacity-0 animation-delay-300 min-h-[3rem] md:min-h-[4.5rem] lg:min-h-[5.25rem]">
             <span className="text-gradient">{headlineText}</span>
