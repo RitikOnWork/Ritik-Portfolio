@@ -84,7 +84,7 @@ const Hero = () => {
               <div className="text-xs md:text-sm text-muted-foreground">DSA Problems</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary">3+</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary">6+</div>
               <div className="text-xs md:text-sm text-muted-foreground">Certifications</div>
             </div>
           </div>

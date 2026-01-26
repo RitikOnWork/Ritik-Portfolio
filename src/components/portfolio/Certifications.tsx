@@ -47,6 +47,14 @@ const certifications = [
     credentialUrl: "https://www.credly.com/badges/b82253a2-6ba2-44f8-af2b-c5cd9a16c185/print",
     logo: awsLogo,
   },
+  {
+    title: "Data Structures and Algorithms",
+    issuer: "GeeksforGeeks",
+    issueDate: "Jan 2026",
+    credentialId: "22a2f51b892e7c3da3c304c09f55bc20",
+    credentialUrl: "https://www.geeksforgeeks.org/certificate/22a2f51b892e7c3da3c304c09f55bc20",
+    logo: gfgLogo,
+  },
 ];
 
 const Certifications = () => {
