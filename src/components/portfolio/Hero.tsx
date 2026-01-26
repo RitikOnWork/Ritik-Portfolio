@@ -48,7 +48,7 @@ const Hero = () => {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
             </span>
             <span className="text-sm font-medium text-primary">
-              Open to ML/AI Internship & Full-time Roles
+              Open to ML/AI & SDE Roles
             </span>
           </div>
 
@@ -63,14 +63,14 @@ const Hero = () => {
 
           {/* Role Title - Clear positioning */}
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary mb-6 animate-fade-in opacity-0 animation-delay-300">
-            Aspiring ML Engineer & AI Enthusiast
+            Aspiring ML Engineer & Software Developer
           </p>
 
           {/* Value Proposition - Results-driven */}
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in opacity-0 animation-delay-400">
-            CS student building <span className="text-foreground font-medium">intelligent systems</span> that solve real-world problems. 
-            Experienced in <span className="text-foreground font-medium">deep learning, NLP, and computer vision</span> with 
-            hands-on projects deploying ML models at scale.
+            CS student building <span className="text-foreground font-medium">intelligent systems & scalable software</span> that solve real-world problems. 
+            Experienced in <span className="text-foreground font-medium">ML, full-stack development, and data structures</span> with 
+            hands-on projects from AI models to production-ready applications.
           </p>
 
           {/* Key Stats - Credibility Indicators */}
@@ -80,7 +80,7 @@ const Hero = () => {
               <div className="text-xs md:text-sm text-muted-foreground">ML Projects</div>
             </div>
             <div className="text-center">
-              <div className="text-2xl md:text-3xl font-bold text-primary">1000+</div>
+              <div className="text-2xl md:text-3xl font-bold text-primary">500+</div>
               <div className="text-xs md:text-sm text-muted-foreground">DSA Problems</div>
             </div>
             <div className="text-center">
@@ -127,7 +127,7 @@ const Hero = () => {
               className="text-sm text-muted-foreground hover:text-primary transition-colors inline-flex items-center gap-1"
             >
               <Sparkles className="w-3 h-3" />
-              View my ML projects
+              View my projects
               <ArrowRight className="w-3 h-3" />
             </a>
           </div>
