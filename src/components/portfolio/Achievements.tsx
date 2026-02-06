@@ -36,68 +36,36 @@ const Achievements = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section id="achievements" className="py-16 md:py-20 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
-      {/* Background glow */}
+    <section id="achievements" className="py-14 md:py-16 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-6 relative z-10">
-        {/* Section Header */}
-        <div className={`text-center mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+        <div className={`text-center mb-8 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-2">
             My <span className="text-gradient">Achievements</span>
           </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm text-muted-foreground max-w-2xl mx-auto">
             Key milestones reflecting technical excellence, consistency, and leadership
           </p>
         </div>
 
-        {/* Timeline */}
-        <div className="max-w-4xl mx-auto relative">
-          {/* Vertical line */}
-          <div className={`absolute left-8 md:left-1/2 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/30 to-transparent hidden md:block transition-all duration-1000 ${isVisible ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`} style={{ transformOrigin: "top" }} />
-          <div className={`absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-primary/50 via-primary/30 to-transparent md:hidden transition-all duration-1000 ${isVisible ? "opacity-100 scale-y-100" : "opacity-0 scale-y-0"}`} style={{ transformOrigin: "top" }} />
-
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className={`relative flex items-start gap-4 mb-8 last:mb-0 transition-all duration-700 ${
-                index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
-              } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
-              style={{ transitionDelay: `${200 + index * 150}ms` }}
+              className={`glass-card p-4 rounded-xl hover-lift group transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              style={{ transitionDelay: `${150 + index * 100}ms` }}
             >
-              {/* Timeline dot */}
-              <div className={`absolute left-8 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary glow-green-sm z-10 hidden md:block transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
-              <div className={`absolute left-8 -translate-x-1/2 w-3 h-3 rounded-full bg-primary glow-green-sm z-10 md:hidden transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
-
-              {/* Content */}
-              <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}`}>
-                <div className="glass-card p-4 rounded-xl hover-lift group">
-                  {/* Icon */}
-                  <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 mb-3 group-hover:bg-primary/20 transition-colors ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
-                    <achievement.icon className="w-5 h-5 text-primary" />
-                  </div>
-
-                  {/* Tag */}
-                  <div className={`inline-flex mb-2 ${index % 2 === 0 ? "md:justify-end md:w-full" : ""}`}>
-                    <span className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/30">
-                      {achievement.tag}
-                    </span>
-                  </div>
-
-                  {/* Title */}
-                  <h3 className="text-base font-semibold text-foreground mb-1.5">
-                    {achievement.title}
-                  </h3>
-
-                  {/* Description */}
-                  <p className="text-sm text-muted-foreground leading-relaxed">
-                    {achievement.description}
-                  </p>
+              <div className="flex items-center gap-3 mb-2">
+                <div className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <achievement.icon className="w-4 h-4 text-primary" />
                 </div>
+                <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-primary/10 text-primary border border-primary/30">
+                  {achievement.tag}
+                </span>
               </div>
-
-              {/* Spacer for alternating layout */}
-              <div className="hidden md:block md:w-[calc(50%-2rem)]" />
+              <h3 className="text-sm font-semibold text-foreground mb-1">{achievement.title}</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed">{achievement.description}</p>
             </div>
           ))}
         </div>
