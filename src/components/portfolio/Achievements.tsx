@@ -49,23 +49,23 @@ const Achievements = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-3">
+        <div className="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-4">
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className={`glass-card p-4 rounded-xl hover-lift group transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
+              className={`glass-card p-5 rounded-xl hover-lift group transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${150 + index * 100}ms` }}
             >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-primary/10 border border-primary/30 shrink-0 group-hover:bg-primary/20 transition-colors">
-                  <achievement.icon className="w-4 h-4 text-primary" />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 shrink-0 group-hover:bg-primary/20 transition-colors">
+                  <achievement.icon className="w-5 h-5 text-primary" />
                 </div>
-                <span className="px-2 py-0.5 text-[10px] font-medium rounded-full bg-primary/10 text-primary border border-primary/30">
+                <span className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/30">
                   {achievement.tag}
                 </span>
               </div>
-              <h3 className="text-sm font-semibold text-foreground mb-1">{achievement.title}</h3>
-              <p className="text-xs text-muted-foreground leading-relaxed">{achievement.description}</p>
+              <h3 className="text-base font-semibold text-foreground mb-1.5">{achievement.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">{achievement.description}</p>
             </div>
           ))}
         </div>
