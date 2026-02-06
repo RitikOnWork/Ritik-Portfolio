@@ -36,14 +36,14 @@ const Achievements = () => {
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.1 });
 
   return (
-    <section id="achievements" className="py-20 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
+    <section id="achievements" className="py-16 md:py-20 relative overflow-hidden" ref={ref as React.RefObject<HTMLElement>}>
       {/* Background glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[150px]" />
 
       <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
-        <div className={`text-center mb-16 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        <div className={`text-center mb-10 transition-all duration-700 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
             My <span className="text-gradient">Achievements</span>
           </h2>
           <p className="text-muted-foreground max-w-2xl mx-auto">
@@ -60,32 +60,32 @@ const Achievements = () => {
           {achievements.map((achievement, index) => (
             <div
               key={index}
-              className={`relative flex items-start gap-6 mb-12 last:mb-0 transition-all duration-700 ${
+              className={`relative flex items-start gap-4 mb-8 last:mb-0 transition-all duration-700 ${
                 index % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
               } ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}
               style={{ transitionDelay: `${200 + index * 150}ms` }}
             >
               {/* Timeline dot */}
-              <div className={`absolute left-8 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-green-sm z-10 hidden md:block transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
-              <div className={`absolute left-8 -translate-x-1/2 w-4 h-4 rounded-full bg-primary glow-green-sm z-10 md:hidden transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
+              <div className={`absolute left-8 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary glow-green-sm z-10 hidden md:block transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
+              <div className={`absolute left-8 -translate-x-1/2 w-3 h-3 rounded-full bg-primary glow-green-sm z-10 md:hidden transition-all duration-500 ${isVisible ? "scale-100" : "scale-0"}`} style={{ transitionDelay: `${300 + index * 150}ms` }} />
 
               {/* Content */}
               <div className={`ml-16 md:ml-0 md:w-[calc(50%-2rem)] ${index % 2 === 0 ? "md:pr-8 md:text-right" : "md:pl-8 md:text-left"}`}>
-                <div className="glass-card p-6 rounded-xl hover-lift group">
+                <div className="glass-card p-4 rounded-xl hover-lift group">
                   {/* Icon */}
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-lg bg-primary/10 border border-primary/30 mb-4 group-hover:bg-primary/20 transition-colors ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
-                    <achievement.icon className="w-6 h-6 text-primary" />
+                  <div className={`inline-flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10 border border-primary/30 mb-3 group-hover:bg-primary/20 transition-colors ${index % 2 === 0 ? "md:ml-auto" : ""}`}>
+                    <achievement.icon className="w-5 h-5 text-primary" />
                   </div>
 
                   {/* Tag */}
-                  <div className={`inline-flex mb-3 ${index % 2 === 0 ? "md:justify-end md:w-full" : ""}`}>
-                    <span className="px-3 py-1 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/30">
+                  <div className={`inline-flex mb-2 ${index % 2 === 0 ? "md:justify-end md:w-full" : ""}`}>
+                    <span className="px-2.5 py-0.5 text-xs font-medium rounded-full bg-primary/10 text-primary border border-primary/30">
                       {achievement.tag}
                     </span>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-lg font-semibold text-foreground mb-2">
+                  <h3 className="text-base font-semibold text-foreground mb-1.5">
                     {achievement.title}
                   </h3>
 
