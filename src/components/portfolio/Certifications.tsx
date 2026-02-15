@@ -55,6 +55,14 @@ const certifications = [
     credentialUrl: "https://www.geeksforgeeks.org/certificate/22a2f51b892e7c3da3c304c09f55bc20",
     logo: gfgLogo,
   },
+  {
+    title: "21 Projects in 21 Days: Machine Learning, Deep Learning & Generative AI",
+    issuer: "GeeksforGeeks",
+    issueDate: "Jan 2026",
+    credentialId: "a17e581868e93a6fd0b7a9071686ffa6",
+    credentialUrl: "https://www.geeksforgeeks.org/certificate/a17e581868e93a6fd0b7a9071686ffa6",
+    logo: gfgLogo,
+  },
 ];
 
 const Certifications = () => {
