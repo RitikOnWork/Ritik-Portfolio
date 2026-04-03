@@ -68,7 +68,7 @@ const Hero = () => {
 
           {/* Value Proposition - Results-driven */}
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in opacity-0 animation-delay-400">
-            B.Tech CS (AI & ML) undergraduate with AI/ML projects across <span className="text-foreground font-medium">NLP, computer vision, recommendation systems, and predictive modelling</span>. I thrive at the intersection of engineering and creativity, designing and deploying end-to-end intelligent systems using <span className="text-foreground font-medium">Python, TensorFlow, scikit-learn, and Hugging Face</span>. Backed by solving 300+ DSA problems on LeetCode & Codeforces, I bring strong algorithmic depth along with a relentless drive to build and ship impactful, production-ready solutions.
+            Building <span className="text-foreground font-medium">end-to-end AI systems</span> across NLP, vision & predictive modelling with <span className="text-foreground font-medium">Python, TensorFlow & Hugging Face</span>. 300+ DSA problems solved. Shipping production-ready solutions with strong algorithmic depth.
           </p>
 
           {/* Key Stats - Credibility Indicators */}
