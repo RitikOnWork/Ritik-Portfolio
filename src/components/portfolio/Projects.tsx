@@ -4,6 +4,20 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const projects = [
   {
+    title: "DocsAssist — AI Powered Documentation Assistant",
+    description:
+      "Designing an AI assistant to answer user queries by understanding large-scale documentation using NLP-based query processing and contextual information retrieval.",
+    tech: ["Python", "NLP", "ML", "React.js"],
+    github: "https://github.com/RitikOnWork",
+  },
+  {
+    title: "CropCast — Agricultural Yield Prediction Model",
+    description:
+      "Trained an XGBoost regression model on 10 years of ICAR crop and weather data, achieving RMSE of 0.18. Deployed an interactive Streamlit dashboard for real-time yield forecasts.",
+    tech: ["Python", "scikit-learn", "XGBoost", "Pandas", "Streamlit"],
+    github: "https://github.com/RitikOnWork",
+  },
+  {
     title: "iValidate",
     description:
       "Smart and secure email validation tool to improve accuracy and deliverability.",
