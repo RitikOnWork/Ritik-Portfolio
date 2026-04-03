@@ -1,4 +1,4 @@
-import { GraduationCap, Briefcase, Code2, Lightbulb } from "lucide-react";
+import { Briefcase, Code2, Lightbulb } from "lucide-react";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const highlights = [
