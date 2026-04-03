@@ -4,13 +4,6 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const projects = [
   {
-    title: "Face Detection",
-    description:
-      "Real-time face detection using Python and OpenCV with Haar Cascade and webcam input.",
-    tech: ["Python", "OpenCV", "Haar Cascade"],
-    github: "https://github.com/RitikOnWork",
-  },
-  {
     title: "iValidate",
     description:
       "Smart and secure email validation tool to improve accuracy and deliverability.",
@@ -22,13 +15,6 @@ const projects = [
     description:
       "Responsive Netflix landing page clone built using HTML and CSS with pixel-perfect design.",
     tech: ["HTML", "CSS", "Responsive"],
-    github: "https://github.com/RitikOnWork",
-  },
-  {
-    title: "Weather App",
-    description:
-      "Real-time weather updates using JavaScript and public weather APIs with location support.",
-    tech: ["JavaScript", "API", "DOM"],
     github: "https://github.com/RitikOnWork",
   },
   {
