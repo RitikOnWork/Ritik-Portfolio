@@ -3,6 +3,17 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const experiences = [
   {
+    title: "Data Science & Analytics Intern",
+    company: "Amdox Technologies",
+    location: "Remote",
+    period: "Nov 2025 – Jan 2026",
+    description: [
+      "Worked on 3 projects involving data analysis and preprocessing, using Python and data science tools to derive insights from structured datasets",
+      "Applied techniques in data visualization and exploratory data analysis (EDA) to support data-driven decision making",
+    ],
+    type: "Internship",
+  },
+  {
     title: "IBM SkillsBuild Internship – AI & Cloud",
     company: "Edunet Foundation (with AICTE & IBM)",
     location: "Remote",
