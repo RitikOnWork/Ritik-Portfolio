@@ -24,33 +24,7 @@ const About = () => {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            {/* Education Card */}
-            <div className={`glass-card p-8 hover-lift transition-all duration-700 delay-100 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
-              <div className="flex items-start gap-4 mb-6">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center shrink-0">
-                  <GraduationCap className="w-6 h-6 text-primary" />
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-1">Education</h3>
-                  <p className="text-muted-foreground text-sm">
-                    Academic Background
-                  </p>
-                </div>
-              </div>
-              <div className="space-y-3">
-                <h4 className="text-lg font-medium">
-                  Bachelor of Technology in Computer Science
-                </h4>
-                <p className="text-muted-foreground">Sharda University</p>
-                <p className="text-sm text-primary font-medium">
-                  Expected Graduation: 2028
-                </p>
-              </div>
-            </div>
-
-            {/* About Text */}
-            <div className={`space-y-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
+          <div className={`max-w-3xl mx-auto space-y-6 transition-all duration-700 delay-200 ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"}`}>
               <p className="text-lg text-muted-foreground leading-relaxed">
                 I'm an emerging Machine Learning Engineer with a strong foundation
                 in Computer Science. My passion lies in harnessing data to solve
@@ -65,7 +39,7 @@ const About = () => {
               </p>
 
               {/* Highlight badges */}
-              <div className="flex flex-wrap gap-3 pt-4">
+              <div className="flex flex-wrap gap-3 pt-4 justify-center">
                 {highlights.map((item, index) => (
                   <div
                     key={index}
@@ -77,7 +51,6 @@ const About = () => {
                   </div>
                 ))}
               </div>
-            </div>
           </div>
         </div>
       </div>
