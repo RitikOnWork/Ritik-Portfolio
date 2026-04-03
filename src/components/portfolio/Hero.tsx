@@ -63,14 +63,12 @@ const Hero = () => {
 
           {/* Role Title - Clear positioning */}
           <p className="text-xl md:text-2xl lg:text-3xl font-semibold text-primary mb-6 animate-fade-in opacity-0 animation-delay-300">
-            Aspiring ML Engineer & Software Developer
+            AI/ML Engineer. Problem Solver.
           </p>
 
           {/* Value Proposition - Results-driven */}
           <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-8 leading-relaxed animate-fade-in opacity-0 animation-delay-400">
-            CS student building <span className="text-foreground font-medium">intelligent systems & scalable software</span> that solve real-world problems. 
-            Experienced in <span className="text-foreground font-medium">ML, full-stack development, and data structures</span> with 
-            hands-on projects from AI models to production-ready applications.
+            B.Tech CS (AI & ML) undergraduate with AI/ML projects across <span className="text-foreground font-medium">NLP, computer vision, recommendation systems, and predictive modelling</span>. I thrive at the intersection of engineering and creativity, designing and deploying end-to-end intelligent systems using <span className="text-foreground font-medium">Python, TensorFlow, scikit-learn, and Hugging Face</span>. Backed by solving 300+ DSA problems on LeetCode & Codeforces, I bring strong algorithmic depth along with a relentless drive to build and ship impactful, production-ready solutions.
           </p>
 
           {/* Key Stats - Credibility Indicators */}
