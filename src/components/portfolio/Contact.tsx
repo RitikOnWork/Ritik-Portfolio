@@ -9,8 +9,8 @@ const contactLinks = [
   {
     icon: Mail,
     label: "Email",
-    value: "ritikraj2186@gmail.com",
-    href: "mailto:ritikraj2186@gmail.com",
+    value: "ritikraj.ai.dev@gmail.com",
+    href: "mailto:ritikraj.ai.dev@gmail.com",
   },
   {
     icon: Linkedin,
@@ -38,7 +38,7 @@ const Contact = () => {
     e.preventDefault();
     const subject = `Portfolio Contact from ${formData.name}`;
     const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    window.location.href = `mailto:ritikraj2186@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    window.location.href = `mailto:ritikraj.ai.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
   };
 
   const handleChange = (
