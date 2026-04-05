@@ -24,20 +24,6 @@ const projects = [
     tech: ["Python", "Validation", "API"],
     github: "https://github.com/RitikOnWork",
   },
-  {
-    title: "Netflix Clone",
-    description:
-      "Responsive Netflix landing page clone built using HTML and CSS with pixel-perfect design.",
-    tech: ["HTML", "CSS", "Responsive"],
-    github: "https://github.com/RitikOnWork",
-  },
-  {
-    title: "Spotify Clone",
-    description:
-      "Music streaming UI with custom audio controls using HTML, CSS, and JavaScript.",
-    tech: ["HTML", "CSS", "JavaScript"],
-    github: "https://github.com/RitikOnWork",
-  },
 ];
 
 const Projects = () => {
