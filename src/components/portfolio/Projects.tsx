@@ -38,6 +38,13 @@ const projects = [
     tech: ["Python", "Validation", "API"],
     github: "https://github.com/RitikOnWork",
   },
+  {
+    title: "More Projects",
+    description:
+      "Explore more of my projects, experiments, and open-source contributions on GitHub.",
+    tech: ["GitHub", "Open Source"],
+    github: "https://github.com/RitikOnWork",
+  },
 ];
 
 const Projects = () => {
