@@ -189,10 +189,15 @@ const Contact = () => {
 
                 <Button
                   type="submit"
+                  disabled={isSending}
                   className="w-full bg-primary text-primary-foreground hover:bg-primary/90 glow-green"
                 >
-                  <Send className="w-4 h-4 mr-2" />
-                  Send Message
+                  {isSending ? (
+                    <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                  ) : (
+                    <Send className="w-4 h-4 mr-2" />
+                  )}
+                  {isSending ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </div>
