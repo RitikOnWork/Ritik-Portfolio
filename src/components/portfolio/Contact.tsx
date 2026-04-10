@@ -34,13 +34,31 @@ const Contact = () => {
     email: "",
     message: "",
   });
+  const [isSending, setIsSending] = useState(false);
   const { ref, isVisible } = useScrollAnimation({ threshold: 0.2 });
+  const { toast } = useToast();
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    const subject = `Portfolio Contact from ${formData.name}`;
-    const body = `Name: ${formData.name}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
-    window.location.href = `mailto:ritikraj.ai.dev@gmail.com?subject=${encodeURIComponent(subject)}&body=${body}`;
+    setIsSending(true);
+    try {
+      await emailjs.send(
+        "service_2u26221",
+        "template_2h9omwb",
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          message: formData.message,
+        },
+        "wzVUt9GI5raO1jX8P"
+      );
+      toast({ title: "Message sent!", description: "I'll get back to you soon." });
+      setFormData({ name: "", email: "", message: "" });
+    } catch {
+      toast({ title: "Failed to send", description: "Please try again later.", variant: "destructive" });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const handleChange = (
