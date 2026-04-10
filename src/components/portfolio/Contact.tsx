@@ -46,11 +46,10 @@ const Contact = () => {
         "service_2u26221",
         "template_2h9omwb",
         {
-          from_name: formData.name,
+          name: formData.name,
           from_email: formData.email,
           reply_to: formData.email,
-          message: formData.message,
-          to_name: "Ritik Raj",
+          message: `From: ${formData.name} (${formData.email})\n\n${formData.message}`,
         },
         "wzVUt9GI5raO1jX8P"
       );
