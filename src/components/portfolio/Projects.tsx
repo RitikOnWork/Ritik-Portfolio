@@ -4,6 +4,20 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const projects = [
   {
+    title: "Human-Resource-Management-System",
+    description:
+      "A premium, full-stack Human Resource Management SaaS platform designed to manage the modern enterprise workforce securely and efficiently. Built with a stunning, performance-driven dark aesthetic.",
+    tech: ["Full-Stack", "SaaS", "HR Management", "Dark UI"],
+    github: "https://github.com/RitikOnWork/Human-Resource-Management-System.git",
+  },
+  {
+    title: "Ritik-Portfolio",
+    description:
+      "A modern, responsive developer portfolio showcasing projects, skills, and experience with elegant design and smooth animations.",
+    tech: ["React", "TypeScript", "Tailwind CSS", "Vite"],
+    github: "https://github.com/RitikOnWork/Ritik-Portfolio.git",
+  },
+  {
     title: "DocsAssist — AI Powered Documentation Assistant",
     description:
       "Designing an AI assistant to answer user queries by understanding large-scale documentation using NLP-based query processing and contextual information retrieval.",
