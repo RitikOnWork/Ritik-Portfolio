@@ -1,5 +1,7 @@
 import { useState } from "react";
-import { Mail, Linkedin, Github, MapPin, Send } from "lucide-react";
+import { Mail, Linkedin, Github, MapPin, Send, Loader2 } from "lucide-react";
+import emailjs from "@emailjs/browser";
+import { useToast } from "@/hooks/use-toast";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
