@@ -48,7 +48,9 @@ const Contact = () => {
         {
           from_name: formData.name,
           from_email: formData.email,
+          reply_to: formData.email,
           message: formData.message,
+          to_name: "Ritik Raj",
         },
         "wzVUt9GI5raO1jX8P"
       );
