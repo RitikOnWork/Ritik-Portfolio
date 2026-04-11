@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, Download, Mail } from "lucide-react";
+import { ArrowRight, Sparkles, Download, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 
@@ -114,6 +114,21 @@ const Hero = () => {
               >
                 <Download className="mr-2 w-4 h-4" />
                 Download Resume
+              </a>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-primary/50 hover:bg-primary/10 text-primary text-base px-8 font-semibold"
+            >
+              <a
+                href="https://www.linkedin.com/in/ritikonwork/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="mr-2 w-4 h-4" />
+                LinkedIn
               </a>
             </Button>
           </div>
