@@ -116,6 +116,21 @@ const Hero = () => {
                 Download Resume
               </a>
             </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-primary/50 hover:bg-primary/10 text-primary text-base px-8 font-semibold"
+            >
+              <a
+                href="https://www.linkedin.com/in/ritikonwork/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Linkedin className="mr-2 w-4 h-4" />
+                LinkedIn
+              </a>
+            </Button>
           </div>
 
           {/* Secondary CTA */}
