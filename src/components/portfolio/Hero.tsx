@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { ArrowRight, Sparkles, Download, Mail } from "lucide-react";
+import { ArrowRight, Sparkles, Download, Mail, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import ParticleBackground from "./ParticleBackground";
 
