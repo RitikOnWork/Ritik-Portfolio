@@ -3,6 +3,17 @@ import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 const experiences = [
   {
+    title: "Software Engineer Intern",
+    company: "Zetheta Algorithms Private Limited",
+    location: "Remote",
+    period: "Apr 2026 – Present",
+    description: [
+      "Contributing to software engineering initiatives focused on algorithmic systems and scalable solutions",
+      "Collaborating with the engineering team to design, develop, and optimize production-grade features",
+    ],
+    type: "Internship",
+  },
+  {
     title: "Data Science & Analytics Intern",
     company: "Amdox Technologies",
     location: "Remote",
