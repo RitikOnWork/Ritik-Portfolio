@@ -5,8 +5,17 @@ import stanfordLogo from "@/assets/stanford-logo.png";
 import udemyLogo from "@/assets/udemy-logo.svg";
 import awsLogo from "@/assets/aws-logo.png";
 import gfgLogo from "@/assets/gfg-logo.svg";
+import hackerrankLogo from "@/assets/hackerrank-logo.png";
 
 const certifications = [
+  {
+    title: "Frontend Developer (React)",
+    issuer: "HackerRank",
+    issueDate: "Apr 2026",
+    credentialId: "b4148d7c8d21",
+    credentialUrl: "https://www.hackerrank.com/certificates/iframe/b4148d7c8d21",
+    logo: hackerrankLogo,
+  },
   {
     title: "The Complete Full-Stack Web Development Bootcamp",
     issuer: "Udemy",
